@@ -1,0 +1,788 @@
+:root {
+  --bg: #14121f;
+  --panel: #1e1a2e;
+  --panel-2: #29233d;
+  --text: #f5eee3;
+  --muted: #b3a9c6;
+  --accent: #f4b67f;
+  --accent-ink: #2a1a0c;
+  --ok: #9fd8b5;
+  --danger: #f29b8f;
+  --line: #3a3352;
+  --radius: 18px;
+  color-scheme: dark;
+  font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.moon {
+  color: var(--accent);
+}
+
+.steps {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.step {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.step.active {
+  background: var(--panel-2);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.chip {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.chip .ok {
+  color: var(--ok);
+}
+
+.chip .bad,
+.chip.bad {
+  color: var(--danger);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+}
+
+.lede {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn.secondary {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.btn.danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(242, 155, 143, 0.5);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tips {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.script {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 22px;
+  font-size: 1.25rem;
+  line-height: 1.7;
+}
+
+.script p {
+  margin: 0 0 8px;
+}
+
+.script .consent {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.script.live {
+  border-color: var(--danger);
+}
+
+.countdown {
+  margin: 12px 0;
+  font-size: 5rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--accent);
+}
+
+.recbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.recdot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--danger);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.notice {
+  background: var(--panel-2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.error {
+  color: var(--danger);
+  margin: 12px 0 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+audio {
+  width: 100%;
+  margin-top: 8px;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field.wide {
+  margin-top: 14px;
+}
+
+.story-part {
+  margin-top: 14px;
+  text-transform: none;
+}
+
+.part-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.part-head select {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.title-row h2 {
+  margin: 0;
+}
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  overflow: hidden;
+}
+
+.progress > div {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+/* Cartoon builder */
+
+.builder {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .builder {
+    grid-template-columns: 1fr;
+  }
+}
+
+.builder-preview {
+  background: radial-gradient(circle at 50% 40%, #34305f, #1a1733);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.builder-preview svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.picker {
+  border: 0;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.picker legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.swatches,
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swatch {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  cursor: pointer;
+}
+
+.swatch.on {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(244, 182, 127, 0.35);
+}
+
+.segmented button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.segmented button.on {
+  background: var(--panel-2);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+.toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.breathe {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: breathe 5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: scale(1.015) translateY(-1px);
+  }
+}
+
+/* Kid mode: --dim goes from 0 to 1 as the story plays, turning the screen into a nightlight. */
+
+.kid {
+  --dim: 0;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #06050b;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.kid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 35%, #34305f 0%, #1a1733 55%, #0b0a16 100%);
+  opacity: calc(1 - var(--dim) * 0.85);
+}
+
+.kid:not(.kid-waiting) {
+  cursor: default;
+}
+
+.nightlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 80%, rgba(255, 176, 102, 0.5), rgba(255, 140, 80, 0.1) 38%, transparent 65%);
+  opacity: calc(0.15 + var(--dim) * 0.6);
+  pointer-events: none;
+}
+
+/* Storybook scenes fill the screen behind everything else. */
+
+.scene-stack {
+  position: absolute;
+  inset: 0;
+  filter: brightness(calc(1 - var(--dim) * 0.6));
+  transition: opacity 1.2s ease;
+}
+
+.kid-waiting .scene-stack {
+  opacity: 0.35;
+}
+
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  animation: scene-in 1.4s ease both;
+}
+
+@keyframes scene-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.scene-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.twinkle {
+  animation: twinkle 3.5s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.drift {
+  animation: drift 40s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-70px);
+  }
+  to {
+    transform: translateX(70px);
+  }
+}
+
+.bob {
+  animation: bob 4s ease-in-out infinite;
+}
+
+.bob.slow {
+  animation-duration: 7s;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.firefly {
+  animation: firefly 7s ease-in-out infinite;
+}
+
+@keyframes firefly {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translate(18px, -22px);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-10px, -40px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(-22px, -12px);
+    opacity: 0.5;
+  }
+}
+
+.shimmer {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  50% {
+    opacity: 0.2;
+    transform: scaleX(1.15);
+  }
+}
+
+.creep {
+  animation: creep 30s linear infinite alternate;
+}
+
+@keyframes creep {
+  to {
+    transform: translateX(120px);
+  }
+}
+
+/* Tap reactions */
+
+.kid-playing .tap {
+  cursor: pointer;
+}
+
+.tap {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.tap-hop {
+  transform-origin: 50% 100%;
+}
+
+.tap-glow.on {
+  animation: tap-glow 1.2s ease-out;
+}
+
+@keyframes tap-glow {
+  30% {
+    filter: brightness(1.7) drop-shadow(0 0 18px #fff3b0);
+    transform: scale(1.15);
+  }
+}
+
+.tap-hop.on {
+  animation: tap-hop 0.9s ease-out;
+}
+
+@keyframes tap-hop {
+  35% {
+    transform: translateY(-50px) rotate(-6deg);
+  }
+  65% {
+    transform: translateY(0) rotate(4deg);
+  }
+}
+
+.tap-wiggle.on {
+  animation: tap-wiggle 1s ease-in-out;
+}
+
+@keyframes tap-wiggle {
+  20% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(9deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  80% {
+    transform: rotate(3deg);
+  }
+}
+
+.tap-close.on {
+  animation: tap-close 1.2s ease-in-out;
+}
+
+@keyframes tap-close {
+  40% {
+    transform: scale(0.5);
+  }
+}
+
+.sparkle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.sparkle i {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  background: #fff3b0;
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  filter: drop-shadow(0 0 6px #ffe9a8);
+  animation: sparkle-up 1.4s ease-out both;
+}
+
+@keyframes sparkle-up {
+  from {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--dx), -150px) scale(1.1) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* The cartoon parent: big in the middle while waiting and at the end, a narrator in the corner while the story plays. */
+
+.kid-avatar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(62vmin, 520px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  filter: brightness(calc(1 - var(--dim) * 0.5));
+  transition:
+    left 1.2s ease,
+    top 1.2s ease,
+    width 1.2s ease,
+    box-shadow 1.2s ease,
+    background-color 1.2s ease;
+}
+
+.kid-playing .kid-avatar {
+  left: calc(3vmin + min(13vmin, 120px));
+  top: calc(100% - 3vmin - min(13vmin, 120px));
+  width: min(26vmin, 240px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  padding-top: 4%;
+  background-color: #2a2550;
+  box-shadow:
+    0 0 0 4px rgba(244, 182, 127, 0.45),
+    0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.kid-avatar svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tap-ring {
+  position: absolute;
+  width: min(70vmin, 580px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid rgba(244, 182, 127, 0.5);
+  animation: ring 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ring {
+  from {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+.exit-corner {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.7rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.exit-corner::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  clip-path: inset(100% 0 0 0);
+}
+
+.exit-corner.holding::after {
+  animation: hold-fill 2.5s linear forwards;
+}
+
+@keyframes hold-fill {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recdot,
+  .breathe,
+  .twinkle,
+  .drift,
+  .bob,
+  .firefly,
+  .shimmer,
+  .creep {
+    animation: none;
+  }
+
+  .tap-ring {
+    animation: none;
+    opacity: 0.6;
+  }
+}
